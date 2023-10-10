@@ -1,1 +1,35 @@
-export const Todo = () => {};
+import { useState } from "react";
+import { List } from "./List";
+import { Form } from "./Form";
+
+export const Todo = () => {
+  const TODO_LIST = [
+    {
+      id: 1,
+      content: "店予約する",
+    },
+    {
+      id: 2,
+      content: "卵買う",
+    },
+    {
+      id: 3,
+      content: "郵便出す",
+    },
+  ];
+
+  const [todos, setTodos] = useState(TODO_LIST);
+
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((todos) => todos.id !== id);
+
+    setTodos(newTodos);
+  };
+
+  return (
+    <>
+      <List todoList={todos} deleteTodo={deleteTodo} />
+      <Form />
+    </>
+  );
+};
