@@ -1,5 +1,7 @@
 export const List = ({ todoList, deleteTodo }) => {
-  const complete = (id) => deleteTodo(id);
+  const complete = (id) => {
+    return deleteTodo(id) === id;
+  };
 
   return (
     <div>
